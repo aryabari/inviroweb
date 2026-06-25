@@ -1,10 +1,10 @@
 <!doctype html>
 <!--
-  INVIRO LABS — full site.
-  Hero reproduces the uploaded cover exactly (Poppins ExtraBold + Open Sauce One, embedded;
-  connective I-to-L stroke measured from the glyphs: lsb .0633em, stem .17em).
-  Sections: Hero / Team / Library (spine shelf) / Ethos / Footer.
-  "Projects", the hero arrow, the library spines and archive link all open publications.html.
+  INVIRO LABS — single-page site.
+  Hero reproduces the uploaded cover (Poppins ExtraBold + Open Sauce One, embedded;
+  connective I-to-L stroke measured from the glyphs).
+  Sections: Hero / Team / Ethos / Research (featured abstract) / Contact footer.
+  All navigation is in-page; the featured abstract opens in an embargo-safe modal.
 -->
 <html lang="en">
 <head>
@@ -304,18 +304,51 @@ nav.show{transform:none;opacity:1;pointer-events:auto;}
 #ethos h2{font-family:var(--disp);font-weight:800;font-size:clamp(54px,10vw,164px);line-height:.88;letter-spacing:-.02em;}
 #ethos h2 .o{color:var(--gray);} #ethos h2 .e{color:var(--teal);}
 .ethos-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(40px,6vw,100px);align-items:start;margin-top:clamp(30px,3.6vw,52px);}
-.ethos-lead{max-width:16ch;font-family:var(--disp);font-weight:600;font-size:clamp(22px,2.7vw,38px);line-height:1.16;letter-spacing:-.012em;color:var(--note);}
-.ethos-col-b{max-width:56ch;}
-.ethos-body{font-weight:400;font-size:clamp(14px,1.12vw,17px);line-height:1.72;color:var(--note);}
-.ethos-close{margin-top:clamp(22px,2.6vw,36px);font-family:var(--disp);font-weight:700;font-size:clamp(18px,1.9vw,26px);line-height:1.24;letter-spacing:-.01em;color:var(--note);}
+.ethos-lead{max-width:15em;font-family:var(--body);font-weight:400;font-size:clamp(20px,2.4vw,32px);line-height:1.34;letter-spacing:-.006em;color:var(--note);}
+.ethos-col-b{max-width:52ch;}
+.ethos-body{font-weight:400;font-size:clamp(14.5px,1.02vw,16px);line-height:1.78;color:var(--note);}
+.ethos-close{margin-top:clamp(22px,2.6vw,34px);font-family:var(--body);font-weight:600;font-size:clamp(16px,1.45vw,20px);line-height:1.42;letter-spacing:-.004em;color:var(--note);}
 .ethos-cta{margin-top:clamp(28px,3.2vw,44px);display:inline-flex;align-items:center;gap:11px;font-weight:600;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;color:#fff;background:var(--teal);padding:14px 24px;border-radius:999px;transition:background .25s,transform .25s,box-shadow .25s;}
 .ethos-cta:hover{background:var(--teal-d);transform:translateY(-1px);box-shadow:0 10px 24px -12px rgba(47,117,117,.7);}
 .ethos-cta svg{width:14px;height:14px;}
 @media (max-width:860px){
   .ethos-grid{grid-template-columns:1fr;gap:clamp(20px,4vw,30px);margin-top:clamp(22px,3.5vw,32px);}
-  .ethos-lead{max-width:22ch;}
+  .ethos-lead{max-width:18em;}
   .ethos-col-b{max-width:62ch;}
 }
+
+/* ---------------- RESEARCH (featured abstract) ---------------- */
+#research{background:var(--note);color:var(--gray);}
+#research .eyebrow{color:rgba(231,227,227,.66);margin-bottom:clamp(30px,4.4vw,58px);}
+.research-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,0.92fr);gap:clamp(40px,6vw,104px);align-items:start;}
+.rf-title{font-family:var(--disp);font-weight:800;font-size:clamp(30px,4.1vw,60px);line-height:1.04;letter-spacing:-.022em;color:var(--gray);max-width:18ch;}
+.rf-sub{margin-top:clamp(14px,1.7vw,24px);font-family:var(--disp);font-weight:600;font-size:clamp(17px,1.7vw,25px);line-height:1.15;letter-spacing:-.01em;color:var(--teal);}
+.rf-cta{margin-top:clamp(28px,3.6vw,48px);display:inline-flex;align-items:center;gap:11px;cursor:pointer;font-family:var(--body);font-weight:600;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--note);background:var(--gray);border:0;padding:14px 24px;border-radius:999px;transition:background .25s var(--ease),transform .25s var(--ease),color .25s;}
+.rf-cta:hover{background:var(--teal);color:#fff;transform:translateY(-1px);}
+.rf-cta svg{width:13px;height:13px;}
+.rf-meta{display:flex;flex-direction:column;border-top:1px solid rgba(231,227,227,.2);}
+.rf-meta .metarow{display:grid;grid-template-columns:minmax(86px,30%) 1fr;gap:16px;padding:13px 0;border-bottom:1px solid rgba(231,227,227,.12);}
+.rf-meta .ml{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(231,227,227,.46);font-weight:500;padding-top:3px;}
+.rf-meta .mv{font-size:clamp(13px,1.05vw,14.5px);line-height:1.45;color:rgba(231,227,227,.9);font-weight:400;}
+@media (max-width:900px){.research-grid{grid-template-columns:1fr;gap:clamp(32px,5vw,46px);}.rf-title{max-width:none;}}
+
+/* abstract modal */
+.abs-modal{position:fixed;inset:0;z-index:200;display:flex;align-items:center;justify-content:center;padding:clamp(14px,4vw,48px);opacity:0;visibility:hidden;transition:opacity .3s var(--ease),visibility .3s;}
+.abs-modal.show{opacity:1;visibility:visible;}
+.abs-scrim{position:absolute;inset:0;background:rgba(18,26,25,.6);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);}
+.abs-panel{position:relative;z-index:1;width:min(760px,100%);max-height:88vh;overflow-y:auto;background:var(--bone);color:var(--note);border-radius:9px;padding:clamp(26px,4vw,52px);box-shadow:0 36px 90px -24px rgba(18,26,25,.55);transform:translateY(14px) scale(.99);transition:transform .32s var(--ease);}
+.abs-modal.show .abs-panel{transform:none;}
+.abs-x{position:absolute;top:14px;right:16px;width:38px;height:38px;border:0;background:transparent;cursor:pointer;font-size:27px;line-height:1;color:var(--note);opacity:.55;transition:opacity .2s;}
+.abs-x:hover{opacity:1;}
+.abs-kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--teal-deep);font-weight:600;padding-right:40px;}
+.abs-panel h3{margin-top:13px;font-family:var(--disp);font-weight:800;font-size:clamp(20px,2.4vw,29px);line-height:1.14;letter-spacing:-.016em;color:var(--note);max-width:34ch;}
+.abs-authors{margin-top:14px;font-size:13px;line-height:1.55;color:var(--tag);padding-bottom:18px;border-bottom:1px solid var(--line);}
+.abs-summary{margin-top:18px;font-size:15px;line-height:1.72;color:var(--note);}
+.abs-embargo{margin-top:22px;display:flex;flex-direction:column;gap:7px;padding:16px 18px;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:6px;background:rgba(78,173,173,.07);}
+.abs-embargo-tag{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--teal-deep);}
+.abs-embargo p{font-size:12.5px;line-height:1.55;color:var(--tag);}
+body.modal-open{overflow:hidden;}
+@media (prefers-reduced-motion:reduce){.abs-modal,.abs-panel{transition:none;}}
 
 /* ---------------- FOOTER ---------------- */
 footer{background:linear-gradient(165deg,var(--teal-d),var(--teal-deep));color:var(--gray);padding:0 clamp(20px,5vw,76px) clamp(24px,3vw,36px);position:relative;}
@@ -350,7 +383,8 @@ footer .colophon span{white-space:nowrap;}
     <a href="#home">Home</a>
     <a href="#team">Team</a>
     <a href="#ethos">Ethos</a>
-    <a class="cta" href="publications.html">Projects&nbsp;&#8599;</a>
+    <a href="#research">Research</a>
+    <a class="cta" href="#contact">Contact</a>
   </div>
 </nav>
 
@@ -400,9 +434,9 @@ footer .colophon span{white-space:nowrap;}
       <p class="ethos-lead reveal" style="--d:.06s">Only 10% of global health research serves the 90% who carry the heaviest burden of disease.</p>
     </div>
     <div class="ethos-col-b">
-      <p class="ethos-body reveal" style="--d:.1s">We&rsquo;re an interdisciplinary collective of clinicians and student researchers &mdash; proactive biology over reactive technology. This year in Rio de Janeiro, we&rsquo;re addressing the convergence of visceral leishmaniasis and HIV before an outbreak forces it.</p>
+      <p class="ethos-body reveal" style="--d:.1s">We&rsquo;re an interdisciplinary collective of clinicians and student researchers focusing on proactive biology over reactive technology. This year in Rio de Janeiro, we&rsquo;re addressing the convergence of visceral leishmaniasis and HIV before an outbreak forces it.</p>
       <p class="ethos-close reveal" style="--d:.14s">With each finding, we get closer to making the 10/90 gap impossible.</p>
-      <a class="ethos-cta reveal" style="--d:.18s" href="publications.html">Read our work
+      <a class="ethos-cta reveal" style="--d:.18s" href="#research">See our research
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="22" y1="80" x2="76" y2="26" stroke="#fff" stroke-width="20"/><polygon points="44,12 88,12 88,56" fill="#fff"/></svg>
       </a>
     </div>
@@ -410,6 +444,43 @@ footer .colophon span{white-space:nowrap;}
 </section>
 
 <!-- ===== FOOTER ===== -->
+<!-- ===== RESEARCH (featured abstract) ===== -->
+<section class="slide" id="research">
+  <div class="eyebrow reveal"><span class="idx">03</span>Selected Research</div>
+  <div class="research-grid">
+    <div class="rf-main">
+      <h2 class="rf-title reveal" style="--d:.06s">Temporal differences in visceral leishmaniasis among people living with HIV versus HIV-negative populations</h2>
+      <p class="rf-sub reveal" style="--d:.1s">Implications for outbreak surveillance.</p>
+      <button class="rf-cta reveal" style="--d:.14s" type="button" data-open-abstract>Read the abstract
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="22" y1="80" x2="76" y2="26" stroke="currentColor" stroke-width="20"/><polygon points="44,12 88,12 88,56" fill="currentColor"/></svg>
+      </button>
+    </div>
+    <div class="rf-meta reveal" style="--d:.12s">
+      <div class="metarow"><span class="ml">Venue</span><span class="mv">AIDS&nbsp;2026 &middot; Abstract 6156</span></div>
+      <div class="metarow"><span class="ml">Category</span><span class="mv">C9 &mdash; Epidemiology of resurgent pathogens</span></div>
+      <div class="metarow"><span class="ml">Authors</span><span class="mv">V.&nbsp;Kuang &middot; A.&nbsp;Bari &middot; M.&nbsp;Bucher</span></div>
+      <div class="metarow"><span class="ml">Affiliation</span><span class="mv">University of Toronto</span></div>
+      <div class="metarow"><span class="ml">Geographies</span><span class="mv">India &middot; Brazil &middot; Ethiopia &middot; Kenya &middot; South&nbsp;Sudan</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- abstract modal -->
+<div class="abs-modal" id="absModal" aria-hidden="true">
+  <div class="abs-scrim" data-close-abstract></div>
+  <div class="abs-panel" role="dialog" aria-modal="true" aria-labelledby="absTitle">
+    <button class="abs-x" type="button" data-close-abstract aria-label="Close abstract">&times;</button>
+    <div class="abs-kicker">AIDS 2026 &middot; Abstract 6156</div>
+    <h3 id="absTitle">Temporal differences in visceral leishmaniasis among people living with HIV versus HIV-negative populations: implications for outbreak surveillance</h3>
+    <div class="abs-authors">V. Kuang, A. Bari, M. Bucher &mdash; University of Toronto</div>
+    <p class="abs-summary">A systematic review examining whether visceral leishmaniasis (VL) tends to present and be diagnosed earlier among people living with HIV than in HIV-negative populations &mdash; and whether that timing could help surface outbreaks sooner. The work explores how existing HIV surveillance infrastructure might serve as an early signal for VL outbreak detection in endemic settings.</p>
+    <div class="abs-embargo">
+      <span class="abs-embargo-tag">Under embargo</span>
+      <p>Full results, effect sizes, and the accompanying geospatial modelling demo are embargoed until presentation at AIDS 2026.</p>
+    </div>
+  </div>
+</div>
+
 <footer id="contact">
   <div class="ftop">
     <div class="fl">
@@ -421,7 +492,7 @@ footer .colophon span{white-space:nowrap;}
       <a href="#home">Home</a>
       <a href="#team">Team</a>
       <a href="#ethos">Ethos</a>
-      <a href="publications.html">Projects &#8599;</a>
+      <a href="#research">Research</a>
     </div>
   </div>
   <div class="colophon">
@@ -450,6 +521,26 @@ footer .colophon span{white-space:nowrap;}
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* ---- featured abstract modal ---- */
+  (function(){
+    const modal=document.getElementById('absModal'); if(!modal) return;
+    let lastFocus=null;
+    function open(){
+      lastFocus=document.activeElement;
+      modal.classList.add('show'); modal.setAttribute('aria-hidden','false');
+      document.body.classList.add('modal-open');
+      const x=modal.querySelector('.abs-x'); if(x) x.focus();
+    }
+    function close(){
+      modal.classList.remove('show'); modal.setAttribute('aria-hidden','true');
+      document.body.classList.remove('modal-open');
+      if(lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+    document.querySelectorAll('[data-open-abstract]').forEach(b=>b.addEventListener('click',open));
+    modal.querySelectorAll('[data-close-abstract]').forEach(b=>b.addEventListener('click',close));
+    window.addEventListener('keydown',e=>{ if(e.key==='Escape' && modal.classList.contains('show')) close(); });
+  })();
 </script>
 </body>
 </html>
